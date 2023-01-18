@@ -3,4 +3,41 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <bean id="student" class="com.wubin.demo.CollectionType.Student">
+        <!--数组类型注入-->
+        <property name="courses">
+            <!--list标签也可以-->
+            <array>
+                <value>java</value>
+                <value>python</value>
+            </array>
+        </property>
+        <!--list类型注入-->
+        <property name="list">
+            <list>
+                <value>A</value>
+                <value>B</value>
+            </list>
+        </property>
+        <property name="map">
+            <map>
+                <entry key="JAVA" value="java"></entry>
+                <entry key="HADOOP" value="hadoop"></entry>
+            </map>
+        </property>
+        <!--注入List集合类型，List内部类型为对象-->
+        <property name="courseList">
+            <list>
+                <ref bean="course1"></ref>
+                <ref bean="course2"></ref>
+            </list>
+
+        </property>
+    </bean>
+    <bean id="course1" class="com.wubin.demo.CollectionType.Course">
+        <property name="cname" value="Spring5框架"></property>
+    </bean>
+    <bean id="course2" class="com.wubin.demo.CollectionType.Course">
+        <property name="cname" value="Hadoop框架"></property>
+    </bean>
 </beans>
