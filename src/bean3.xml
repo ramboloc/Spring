@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="emp" class="com.wubin.demo.Bean.Emp">
+        <!--设置两个普通属性-->
+        <property name="name" value="A"></property>
+        <property name="gender" value="male"></property>
+
+        <!--设置对象属性-->
+        <property name="dept">
+            <bean id="dept" class="com.wubin.demo.Bean.Dept">
+                <property name="dept_name" value="安保部"></property>
+            </bean>
+        </property>
+
+    </bean>
+</beans>
