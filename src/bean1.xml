@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <bean id="user" class="com.wubin.demo.User"></bean>
+    <bean id="userDao" class="com.wubin.demo.Dao.UserDaoImpl"></bean>
+    <!--2 set 方法注入属性-->
+    <bean id="book" class="com.wubin.demo.Book" >
+        <!--使用property完成属性注入
+            name: 类里面属性的名称
+            value：属性的值
+        -->
+        <property name="bookName" value="三国演义"></property>
+<!--        &lt;!&ndash;null值注入&ndash;&gt;-->
+<!--        <property name="author" >-->
+<!--            <null></null>-->
+<!--        </property>-->
+        <!--特殊符号注入
+        1 使用转义&1t; &gt;
+        2 把特殊符号内容写道CDATA中
+        -->
+        <property name="author">
+            <value><![CDATA[<<起飞>>]]></value>
+
+        </property>
+
+    </bean>
+    <!--3 有参数构造方法注入属性-->
+    <bean id="orders" class="com.wubin.demo.Orders">
+        <constructor-arg name="orderName" value="order_A"></constructor-arg>
+        <constructor-arg name="address" value="杭州"></constructor-arg>
+    </bean>
+    <!---->
+    <bean></bean>
 </beans>
